@@ -1,0 +1,48 @@
+# Node.js 依赖
+node_modules/
+frontend/node_modules/
+
+# 构建产物
+frontend/dist/
+backend/build/
+backend/dist/
+
+# Python 缓存
+__pycache__/
+*.py[cod]
+backend/__pycache__/
+backend/tests/__pycache__/
+backend/.pytest_cache/
+
+# 虚拟环境
+.venv/
+venv/
+backend/venv/
+
+# 环境变量
+.env
+.env.local
+.env.*.local
+backend/.env
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# 日志
+*.log
+logs/
+
+# 数据库
+*.db
+*.sqlite3
+
+# 测试覆盖率
+coverage/
+htmlcov/
+.coverage
+
+# 临时文件
+tmp/
+*.tmp
