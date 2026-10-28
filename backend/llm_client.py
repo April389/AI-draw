@@ -182,7 +182,10 @@ def create_llm_client(mock: bool = False) -> BaseLLMClient:
     Returns:
         LLM客户端实例
     """
-    if mock:
+    settings = get_settings()
+    # 支持通过 MOCK_LLM 环境变量强制使用Mock模式（用于演示/测试，无需API Key）
+    if mock or settings.mock_llm:
+        logger.info("使用 Mock LLM 客户端（MOCK_LLM 已启用）")
         return MockLLMClient()
     
     try:

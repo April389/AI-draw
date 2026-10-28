@@ -48,7 +48,10 @@ class Settings(BaseSettings):
     # API Key（必填，国内模型需到对应控制台申请）
     # 通义千问: https://dashscope.console.aliyun.com/
     # DeepSeek: https://platform.deepseek.com/
-    llm_api_key: str = "sk-你的API密钥"
+    llm_api_key: str = "sk-your-api-key-here"
+
+    # Mock 模式：设为 true 时使用预设图数据，无需 API Key（适合离线演示/测试）
+    mock_llm: bool = False
 
     # 以下两项在选择预设时自动填充，设置 llm_provider=custom 时需手动填写
     llm_base_url: str = ""
