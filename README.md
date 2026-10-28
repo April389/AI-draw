@@ -137,20 +137,29 @@ cd frontend
 npm test
 ```
 
-## LLM 配置
+## LLM 配置（国内大模型优先）
 
-系统默认使用 **Mock 模式**（无需 API Key 即可运行，返回预设图数据用于演示）。
+系统默认使用 **通义千问（Qwen）**，同时支持 **DeepSeek**，两者均为国内大模型且兼容 OpenAI API 格式。
 
-接入真实 LLM（兼容 OpenAI API 格式，如 DeepSeek / Qwen / GPT）：
+### 一键切换模型
 
-1. 编辑 `backend/.env`（基于 `.env.example`）：
+编辑 `backend/.env`（复制自 `.env.example`），只需设置 `LLM_PROVIDER` 和 `LLM_API_KEY`：
+
 ```env
-LLM_API_KEY=sk-你的密钥
-LLM_BASE_URL=https://api.deepseek.com/v1
-LLM_MODEL=deepseek-chat
+# 选择国内模型提供商：qwen | deepseek | qwen-turbo | deepseek-reasoner
+LLM_PROVIDER=qwen
+LLM_API_KEY=sk-你的API密钥
 ```
 
-2. 重启后端服务
+| 预设值 | 模型 | 说明 | 申请地址 |
+|--------|------|------|----------|
+| `qwen` | Qwen-Plus | 通义千问，综合能力强 | [阿里云 DashScope](https://dashscope.console.aliyun.com/apiKey) |
+| `qwen-turbo` | Qwen-Turbo | 通义千问，更快更便宜 | 同上 |
+| `deepseek` | DeepSeek Chat | 性价比高 | [DeepSeek 开放平台](https://platform.deepseek.com/api_keys) |
+| `deepseek-reasoner` | DeepSeek R1 | 推理模型 | 同上 |
+| `custom` | 自定义 | 需手动填 `LLM_BASE_URL` + `LLM_MODEL` | - |
+
+> 未配置 API Key 时系统自动使用 **Mock 模式**（返回预设图数据，用于离线演示和测试），无需任何密钥即可运行。
 
 ## 许可证
 

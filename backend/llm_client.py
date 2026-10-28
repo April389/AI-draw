@@ -61,8 +61,9 @@ class OpenAICompatibleClient(BaseLLMClient):
     ):
         settings = get_settings()
         self.api_key = api_key or settings.llm_api_key
-        self.base_url = base_url or settings.llm_base_url
-        self.model = model or settings.llm_model
+        # 使用解析后的配置（支持国内模型预设自动填充）
+        self.base_url = base_url or settings.resolved_base_url
+        self.model = model or settings.resolved_model
         self.temperature = temperature
         self.max_tokens = max_tokens
         

@@ -212,7 +212,8 @@ async def list_diagram_types():
 async def startup_event():
     """应用启动时的初始化"""
     logger.info(f"智能绘图系统 API v{app.version} 启动中...")
-    logger.info(f"配置: model={settings.llm_model}, base_url={settings.llm_base_url}")
+    logger.info(f"LLM模型: {settings.resolved_model} (提供商: {settings.provider_description})")
+    logger.info(f"API端点: {settings.resolved_base_url}")
     # 预热LLM客户端
     try:
         client = get_llm_client()
