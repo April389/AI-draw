@@ -7,7 +7,7 @@ pydantic==2.9.2
 pydantic-settings==2.5.2
 
 # LLM客户端 - 兼容OpenAI API的任何大模型服务
-openai==1.51.2
+openai==3.40.0
 
 # JSON Schema校验
 jsonschema==4.23.0
